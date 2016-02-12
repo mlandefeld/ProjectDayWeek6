@@ -13,38 +13,9 @@ namespace WeekSixProjectDay
         {
             Console.WriteLine("What date are you creating a meeting for? (Answer in MMDDYY)");
             string filename = Console.ReadLine();
-            
 
-            StreamWriter newMeeting = new StreamWriter("Minutes" +filename + ".txt");
 
-            Console.WriteLine("What team do you wish to create a meeting for?");
-            ViewTeam();
-            string chooseTeam = Console.ReadLine();
-            if (chooseTeam == "1")
-            {
-                newMeeting.WriteLine("Administration Team");
-                Console.WriteLine("Write the name of the team member who is taking the minutes from the list below:");
-                AdministrationTeam();
-                string minuteTaker = Console.ReadLine();
-                newMeeting.WriteLine(minuteTaker);
-            }
-            else if (chooseTeam == "2")
-            {
-                newMeeting.WriteLine("Marketing Team");
-            }
-            else if (chooseTeam == "3")
-            {
-                newMeeting.WriteLine("Education Team");
-            }
-            else if (chooseTeam == "4")
-            {
-                newMeeting.WriteLine("All Team");
-            }
-            else
-            {
-                Console.WriteLine("Oh no! Try an input that works!");
-                Console.ReadLine();
-            }
+            StreamWriter newMeeting = new StreamWriter("Minutes" + filename + ".txt");
 
             newMeeting.WriteLine("We Can Code IT");
             newMeeting.WriteLine("50 Public Square, Suite 200, ");
@@ -52,9 +23,87 @@ namespace WeekSixProjectDay
             newMeeting.WriteLine("*********************************************************");
             newMeeting.WriteLine("\"Meeting Minutes\"");
 
-            Console.WriteLine("Choose the Team member who is taking the minutes from the list below:");
+
+            Console.WriteLine("What team do you wish to create a meeting for?");
+            MeetType();
+            string chooseTeam = Console.ReadLine();
             if (chooseTeam == "1")
             {
+                newMeeting.WriteLine("Administration Team");
+                Console.WriteLine("*********************************************************");
+                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
+                AdministrationTeam();
+                Console.WriteLine("*********************************************************");
+                string minuteTaker = Console.ReadLine();
+                newMeeting.WriteLine(minuteTaker);
+            }
+            else if (chooseTeam == "2")
+            {
+                newMeeting.WriteLine("Marketing Team");
+                Console.WriteLine("*********************************************************");
+                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
+                MarketingTeam();
+                Console.WriteLine("*********************************************************");
+                string minuteTaker = Console.ReadLine();
+                newMeeting.WriteLine(minuteTaker);
+            }
+            else if (chooseTeam == "3")
+            {
+                newMeeting.WriteLine("Education Team");
+                Console.WriteLine("*********************************************************");
+                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
+                EducationTeam();
+                Console.WriteLine("*********************************************************");
+                string minuteTaker = Console.ReadLine();
+                newMeeting.WriteLine(minuteTaker);
+            }
+            else if (chooseTeam == "4")
+            {
+                newMeeting.WriteLine("All Team");
+                Console.WriteLine("*********************************************************");
+                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
+                AllTeam();
+                Console.WriteLine("*********************************************************");
+                string minuteTaker = Console.ReadLine();
+                newMeeting.WriteLine(minuteTaker);
+            }
+            else
+            {
+                Console.WriteLine("Oh no! Try an input that works!");
+                Console.ReadLine();
+            }
+
+
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("Write the name of the team member leading the meeting:");
+            string teamLead = Console.ReadLine();
+            if (teamLead == "1")
+            {
+                
+                AdministrationTeam();
+            }
+            else if (teamLead == "2")
+            {
+                MarketingTeam();
+            }
+            else if (teamLead == "3")
+            {
+                EducationTeam();
+            }
+            else if (teamLead == "4")
+            {
+                AllTeam();
+            }
+            else
+            {
+                Console.WriteLine("Oh no! Try an input that works!");
+                Console.ReadLine();
+            }
+
+            /*
+            if (chooseTeam == "1")
+            {
+
                 AdministrationTeam();
             }
             else if (chooseTeam == "2")
@@ -74,6 +123,7 @@ namespace WeekSixProjectDay
                 Console.WriteLine("Oh no! Try an input that works!");
                 Console.ReadLine();
             }
+            */
 
             Console.WriteLine("Please write the topic of your meeting: ");
             string topic = Console.ReadLine();
@@ -97,21 +147,39 @@ namespace WeekSixProjectDay
 
             StreamReader readSummary = new StreamReader("Minutes" + filename + ".txt");
 
+            using (readSummary)
+            {
+                int lineNumber = 0;
+                string line = readSummary.ReadLine();
+                while (line != null)
+                {
+                    lineNumber++;
+                    Console.WriteLine("{5}", lineNumber, line);
+                    line = readSummary.ReadLine();
+                }
 
-
-
-
+            }
         }
 
-        public static void EveryFileText()
+        public static void MeetType()
         {
-            
+            List<string> meetingType = new List<string>();
+            meetingType.Add("1. Administration Team");
+            meetingType.Add("2. Marketing Team");
+            meetingType.Add("3. Education Team");
+            meetingType.Add("4. All Team");
+
+            foreach (var name in meetingType)
+            {
+                Console.WriteLine(name);
+
+            }
         }
 
         public static void ViewTeam()
         {
             string viewTeam = "________________________________________________________" +
-                "\nEnter the number for the item you wish to select\n1. Administration Team\n2. Marketing Team \n3. Education Team\n4. All Team";
+                "\n1. Administration Team\n2. Marketing Team \n3. Education Team\n4. All Team";
 
             List<string> meetingType = new List<string>();
             meetingType.Add("Administration Team");
@@ -121,6 +189,7 @@ namespace WeekSixProjectDay
 
 
             Console.WriteLine(viewTeam);
+
             int teamInput = int.Parse(Console.ReadLine());
 
             while (true)
@@ -145,9 +214,15 @@ namespace WeekSixProjectDay
                     AllTeam();
                     break;
                 }
+                else
+                {
+                    Console.WriteLine("Oh no! Try an input that works!");
+                    Console.ReadLine();
+                }
             }
         }
 
+       
         public static void AdministrationTeam()
         {
             List<string> adminTeam = new List<string>();

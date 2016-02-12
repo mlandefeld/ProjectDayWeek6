@@ -29,7 +29,8 @@ namespace WeekSixProjectDay
                     Commands.Header();
                     Commands.CreateMeeting();
                     Console.WriteLine(menu);
-                    break;
+                    input = Console.ReadLine();
+                    continue;
                 }
                 else if (input == "2")
                 {
@@ -37,7 +38,8 @@ namespace WeekSixProjectDay
                     Commands.Header();
                     Commands.ViewTeam();
                     Console.WriteLine(menu);
-                    break;
+                    input = Console.ReadLine();
+                    continue;
                 }
                 else if (input == "3")
                 {
