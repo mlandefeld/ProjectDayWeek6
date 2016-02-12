@@ -13,11 +13,38 @@ namespace WeekSixProjectDay
         {
             Console.WriteLine("What date are you creating a meeting for? (Answer in MMDDYY)");
             string filename = Console.ReadLine();
-            Console.WriteLine("What team do you wish to create a meeting for?");
-            ViewTeam();
-            Console.WriteLine();
+            
 
             StreamWriter newMeeting = new StreamWriter("Minutes" +filename + ".txt");
+
+            Console.WriteLine("What team do you wish to create a meeting for?");
+            ViewTeam();
+            string chooseTeam = Console.ReadLine();
+            if (chooseTeam == "1")
+            {
+                newMeeting.WriteLine("Administration Team");
+                Console.WriteLine("Write the name of the team member who is taking the minutes from the list below:");
+                AdministrationTeam();
+                string minuteTaker = Console.ReadLine();
+                newMeeting.WriteLine(minuteTaker);
+            }
+            else if (chooseTeam == "2")
+            {
+                newMeeting.WriteLine("Marketing Team");
+            }
+            else if (chooseTeam == "3")
+            {
+                newMeeting.WriteLine("Education Team");
+            }
+            else if (chooseTeam == "4")
+            {
+                newMeeting.WriteLine("All Team");
+            }
+            else
+            {
+                Console.WriteLine("Oh no! Try an input that works!");
+                Console.ReadLine();
+            }
 
             newMeeting.WriteLine("We Can Code IT");
             newMeeting.WriteLine("50 Public Square, Suite 200, ");
@@ -25,7 +52,54 @@ namespace WeekSixProjectDay
             newMeeting.WriteLine("*********************************************************");
             newMeeting.WriteLine("\"Meeting Minutes\"");
 
+            Console.WriteLine("Choose the Team member who is taking the minutes from the list below:");
+            if (chooseTeam == "1")
+            {
+                AdministrationTeam();
+            }
+            else if (chooseTeam == "2")
+            {
+                MarketingTeam();
+            }
+            else if (chooseTeam == "3")
+            {
+                EducationTeam();
+            }
+            else if (chooseTeam == "4")
+            {
+                AllTeam();
+            }
+            else
+            {
+                Console.WriteLine("Oh no! Try an input that works!");
+                Console.ReadLine();
+            }
+
+            Console.WriteLine("Please write the topic of your meeting: ");
+            string topic = Console.ReadLine();
+
+            Console.WriteLine("Please write the meeting notes: ");
+            string notes = Console.ReadLine();
+
+            Console.WriteLine("Would you like to enter notes for another topic? (Y or N)");
+
+
+            newMeeting.WriteLine("Topic: " + topic);
+            newMeeting.WriteLine("Notes:");
+            newMeeting.WriteLine(notes);
+
+
             newMeeting.Close();
+
+            Console.Clear();
+            //print summary
+            Console.WriteLine("Summary: ");
+
+            StreamReader readSummary = new StreamReader("Minutes" + filename + ".txt");
+
+
+
+
 
         }
 
@@ -38,6 +112,14 @@ namespace WeekSixProjectDay
         {
             string viewTeam = "________________________________________________________" +
                 "\nEnter the number for the item you wish to select\n1. Administration Team\n2. Marketing Team \n3. Education Team\n4. All Team";
+
+            List<string> meetingType = new List<string>();
+            meetingType.Add("Administration Team");
+            meetingType.Add("Marketing Team");
+            meetingType.Add("Education Team");
+            meetingType.Add("All Team");
+
+
             Console.WriteLine(viewTeam);
             int teamInput = int.Parse(Console.ReadLine());
 
