@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace WeekSixProjectDay
 {
@@ -14,8 +15,23 @@ namespace WeekSixProjectDay
             string filename = Console.ReadLine();
             Console.WriteLine("What team do you wish to create a meeting for?");
             ViewTeam();
+            Console.WriteLine();
 
-            //StreamWriter newMeeting = new StreamWriter(filename + ".txt");
+            StreamWriter newMeeting = new StreamWriter("Minutes" +filename + ".txt");
+
+            newMeeting.WriteLine("We Can Code IT");
+            newMeeting.WriteLine("50 Public Square, Suite 200, ");
+            newMeeting.WriteLine("Cleveland, OH 44113");
+            newMeeting.WriteLine("*********************************************************");
+            newMeeting.WriteLine("\"Meeting Minutes\"");
+
+            newMeeting.Close();
+
+        }
+
+        public static void EveryFileText()
+        {
+            
         }
 
         public static void ViewTeam()
