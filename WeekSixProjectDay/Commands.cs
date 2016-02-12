@@ -79,7 +79,6 @@ namespace WeekSixProjectDay
             string teamLead = Console.ReadLine();
             if (teamLead == "1")
             {
-                
                 AdministrationTeam();
             }
             else if (teamLead == "2")
@@ -132,6 +131,27 @@ namespace WeekSixProjectDay
             string notes = Console.ReadLine();
 
             Console.WriteLine("Would you like to enter notes for another topic? (Y or N)");
+            string newTopic = Console.ReadLine();
+            while(true)
+            {
+                if (newTopic.Equals("Y", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine("Please write the next topic for your meeting: ");
+                    string nextTopic = Console.ReadLine();
+                    break;
+                }
+                else if (newTopic.Equals("N", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    Console.WriteLine("Please write the notes for the new topic: ");
+                    string nextTopic = Console.ReadLine();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Oh no! Try an input that works!");
+                    Console.ReadLine();
+                }
+            }
 
 
             newMeeting.WriteLine("Topic: " + topic);
@@ -142,8 +162,9 @@ namespace WeekSixProjectDay
             newMeeting.Close();
 
             Console.Clear();
+
             //print summary
-            Console.WriteLine("Summary: ");
+            Console.WriteLine("Summary of your Meeting Minutes: ");
 
             StreamReader readSummary = new StreamReader("Minutes" + filename + ".txt");
 
