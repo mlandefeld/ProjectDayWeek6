@@ -27,108 +27,186 @@ namespace WeekSixProjectDay
             Console.WriteLine("What team do you wish to create a meeting for?");
             MeetType();
             string chooseTeam = Console.ReadLine();
-            if (chooseTeam == "1")
+            while (true)
             {
-                newMeeting.WriteLine("Administration Team");
-                Console.WriteLine("*********************************************************");
-                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
-                AdministrationTeam();
-                Console.WriteLine("*********************************************************");
-                string minuteTaker = Console.ReadLine();
-                newMeeting.WriteLine(minuteTaker);
-            }
-            else if (chooseTeam == "2")
-            {
-                newMeeting.WriteLine("Marketing Team");
-                Console.WriteLine("*********************************************************");
-                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
-                MarketingTeam();
-                Console.WriteLine("*********************************************************");
-                string minuteTaker = Console.ReadLine();
-                newMeeting.WriteLine(minuteTaker);
-            }
-            else if (chooseTeam == "3")
-            {
-                newMeeting.WriteLine("Education Team");
-                Console.WriteLine("*********************************************************");
-                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
-                EducationTeam();
-                Console.WriteLine("*********************************************************");
-                string minuteTaker = Console.ReadLine();
-                newMeeting.WriteLine(minuteTaker);
-            }
-            else if (chooseTeam == "4")
-            {
-                newMeeting.WriteLine("All Team");
-                Console.WriteLine("*********************************************************");
-                Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
-                AllTeam();
-                Console.WriteLine("*********************************************************");
-                string minuteTaker = Console.ReadLine();
-                newMeeting.WriteLine(minuteTaker);
-            }
-            else
-            {
-                Console.WriteLine("Oh no! Try an input that works!");
-                Console.ReadLine();
+                if (chooseTeam == "1")
+                {
+                    newMeeting.WriteLine("Administration Team");
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member who is taking the meeting minutes(Choose from below list):");
+                    AdministrationTeam();
+                    Console.WriteLine("*********************************************************");
+                    string minuteTaker = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(minuteTaker) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            minuteTaker = Console.ReadLine();
+                        }
+                        
+                    }
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member leading the meeting (Choose from above list):");
+                    string teamLead = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(teamLead) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            teamLead = Console.ReadLine();
+                        }
+                        
+                    }
+                    newMeeting.WriteLine("Minute Taker: " + minuteTaker);
+                    newMeeting.WriteLine("Meeting Leader: " + teamLead);
+                }
+                else if (chooseTeam == "2")
+                {
+                    newMeeting.WriteLine("Marketing Team");
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
+                    MarketingTeam();
+                    Console.WriteLine("*********************************************************");
+                    string minuteTaker = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(minuteTaker) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            minuteTaker = Console.ReadLine();
+                        }
+                        
+                    }
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member leading the meeting:");
+                    string teamLead = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(teamLead) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            teamLead = Console.ReadLine();
+                        }
+
+                    }
+                    newMeeting.WriteLine("Minute Taker: " + minuteTaker);
+                    newMeeting.WriteLine("Meeting Leader: " + teamLead);
+                }
+                else if (chooseTeam == "3")
+                {
+                    newMeeting.WriteLine("Education Team");
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
+                    EducationTeam();
+                    Console.WriteLine("*********************************************************");
+                    string minuteTaker = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(minuteTaker) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            minuteTaker = Console.ReadLine();
+                        }
+                        
+                    }
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member leading the meeting:");
+                    string teamLead = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(teamLead) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            teamLead = Console.ReadLine();
+                        }
+
+                    }
+                    newMeeting.WriteLine("Minute Taker: " + minuteTaker);
+                    newMeeting.WriteLine("Meeting Leader: " + teamLead);
+                }
+                else if (chooseTeam == "4")
+                {
+                    newMeeting.WriteLine("All Team");
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member who is taking the meeting minutes:");
+                    AllTeam();
+                    Console.WriteLine("*********************************************************");
+                    string minuteTaker = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(minuteTaker) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            minuteTaker = Console.ReadLine();
+                        }
+                        
+                    }
+                    Console.WriteLine("*********************************************************");
+                    Console.WriteLine("Write the name of the team member leading the meeting:");
+                    string teamLead = Console.ReadLine();
+                    while (true)
+                    {
+                        if (IsValidName(teamLead) == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Oh no! Try a valid name!");
+                            teamLead = Console.ReadLine();
+                        }
+
+                    }
+                    newMeeting.WriteLine("Minute Taker: " + minuteTaker);
+                    newMeeting.WriteLine("Meeting Leader: " + teamLead);
+                }
+                else
+                {
+
+                    Console.WriteLine("Oh no! Try an input that works!");
+                    chooseTeam = Console.ReadLine();
+                    continue;
+                }
+                break;
             }
 
-
-            Console.WriteLine("*********************************************************");
-            Console.WriteLine("Write the name of the team member leading the meeting:");
-            string teamLead = Console.ReadLine();
-            if (teamLead == "1")
-            {
-                AdministrationTeam();
-            }
-            else if (teamLead == "2")
-            {
-                MarketingTeam();
-            }
-            else if (teamLead == "3")
-            {
-                EducationTeam();
-            }
-            else if (teamLead == "4")
-            {
-                AllTeam();
-            }
-            else
-            {
-                Console.WriteLine("Oh no! Try an input that works!");
-                Console.ReadLine();
-            }
-
-            /*
-            if (chooseTeam == "1")
-            {
-
-                AdministrationTeam();
-            }
-            else if (chooseTeam == "2")
-            {
-                MarketingTeam();
-            }
-            else if (chooseTeam == "3")
-            {
-                EducationTeam();
-            }
-            else if (chooseTeam == "4")
-            {
-                AllTeam();
-            }
-            else
-            {
-                Console.WriteLine("Oh no! Try an input that works!");
-                Console.ReadLine();
-            }
-            */
 
             Console.WriteLine("Please write the topic of your meeting: ");
             string topic = Console.ReadLine();
+            newMeeting.WriteLine("Topic: " + topic);
 
             Console.WriteLine("Please write the meeting notes: ");
             string notes = Console.ReadLine();
+            newMeeting.WriteLine("Notes: " + notes);
 
             Console.WriteLine("Would you like to enter notes for another topic? (Y or N)");
             string newTopic = Console.ReadLine();
@@ -138,25 +216,24 @@ namespace WeekSixProjectDay
                 {
                     Console.WriteLine("Please write the next topic for your meeting: ");
                     string nextTopic = Console.ReadLine();
-                    break;
+                    newMeeting.WriteLine("Topic: " + nextTopic);
+                    Console.WriteLine("Please write the notes for this topic: ");
+                    string nextNotes = Console.ReadLine();
+                    newMeeting.WriteLine("Notes: " + nextTopic);
+                    Console.WriteLine("Would you like to enter notes for another topic? (Y or N)");
+                    newTopic = Console.ReadLine();
+
                 }
                 else if (newTopic.Equals("N", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    Console.WriteLine("Please write the notes for the new topic: ");
-                    string nextTopic = Console.ReadLine();
                     break;
                 }
                 else
                 {
                     Console.WriteLine("Oh no! Try an input that works!");
-                    Console.ReadLine();
+                    newTopic = Console.ReadLine();
                 }
             }
-
-
-            newMeeting.WriteLine("Topic: " + topic);
-            newMeeting.WriteLine("Notes:");
-            newMeeting.WriteLine(notes);
 
 
             newMeeting.Close();
@@ -170,12 +247,10 @@ namespace WeekSixProjectDay
 
             using (readSummary)
             {
-                int lineNumber = 0;
                 string line = readSummary.ReadLine();
                 while (line != null)
                 {
-                    lineNumber++;
-                    Console.WriteLine("{5}", lineNumber, line);
+                    Console.WriteLine(line);
                     line = readSummary.ReadLine();
                 }
 
@@ -200,37 +275,31 @@ namespace WeekSixProjectDay
         public static void ViewTeam()
         {
             string viewTeam = "________________________________________________________" +
+                "\nEnter the corresponding number to select a team" +
                 "\n1. Administration Team\n2. Marketing Team \n3. Education Team\n4. All Team";
-
-            List<string> meetingType = new List<string>();
-            meetingType.Add("Administration Team");
-            meetingType.Add("Marketing Team");
-            meetingType.Add("Education Team");
-            meetingType.Add("All Team");
-
 
             Console.WriteLine(viewTeam);
 
-            int teamInput = int.Parse(Console.ReadLine());
+            string teamInput = Console.ReadLine();
 
             while (true)
             {
-                if (teamInput == 1)
+                if (teamInput == "1")
                 {
                     AdministrationTeam();
                     break;
                 }
-                else if (teamInput == 2)
+                else if (teamInput == "2")
                 {
                     MarketingTeam();
                     break;
                 }
-                else if (teamInput == 3)
+                else if (teamInput == "3")
                 {
                     EducationTeam();
                     break;
                 }
-                else if (teamInput == 4)
+                else if (teamInput == "4")
                 {
                     AllTeam();
                     break;
@@ -238,8 +307,10 @@ namespace WeekSixProjectDay
                 else
                 {
                     Console.WriteLine("Oh no! Try an input that works!");
-                    Console.ReadLine();
+                    teamInput = Console.ReadLine();
+                    
                 }
+
             }
         }
 
@@ -259,7 +330,6 @@ namespace WeekSixProjectDay
                 Console.WriteLine(name);
 
             }
-
         }
 
         public static void MarketingTeam()
@@ -275,7 +345,6 @@ namespace WeekSixProjectDay
             foreach (var name in markTeam)
             {
                 Console.WriteLine(name);
-
             }
         }
 
@@ -290,8 +359,8 @@ namespace WeekSixProjectDay
             Console.WriteLine("Education Team Directory" +
                "\n*********************************************************");
             foreach (var name in eduTeam)
-            {
-                Console.WriteLine(name);
+            { 
+                Console.WriteLine(name);  
             }
 
         }
@@ -318,8 +387,32 @@ namespace WeekSixProjectDay
             {
                 Console.WriteLine(pair.Key + " " + pair.Value);
             }
+        }
 
+        public static bool IsValidName(string name)
+        {
+            Dictionary<string, string> allTeam = new Dictionary<string, string>();
+            allTeam.Add("Amy Arthur", "(Administration Team)");
+            allTeam.Add("Bob Bobert", "(Administration Team)");
+            allTeam.Add("Carl Cruso", "(Administration Team)");
+            allTeam.Add("Dana Donner", "(Administration Team)");
+            allTeam.Add("Eric Elton", "(Marketing Team)");
+            allTeam.Add("Fred Fredricks", "(Marketing Team)");
+            allTeam.Add("Gigi Golden", "(Marketing Team)");
+            allTeam.Add("Harry Humphries", "(Marketing Team)");
+            allTeam.Add("Ida Idle", "(Education Team)");
+            allTeam.Add("James Jameson", "(Education Team)");
+            allTeam.Add("Kate Kerrington", "(Education Team)");
+            allTeam.Add("Lucy Lucky", "(Education Team)");
 
+            foreach (string validname in allTeam.Keys)
+            {
+                if(validname.Equals(name, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static void Header()
